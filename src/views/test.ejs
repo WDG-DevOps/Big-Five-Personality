@@ -1,0 +1,71 @@
+<link rel="stylesheet" href="styles/test.css" />
+<header>
+  <div class="header-content">
+    <div class="logo"><a href="/" style="text-decoration: none; color: inherit;">🧠 Big Five Test</a></div>
+    <div class="progress-container">
+      <div class="progress-text">
+        <span id="currentQuestion">1</span> dari
+        <span id="totalQuestions">50</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+  </div>
+</header>
+<main>
+  <div class="test-container">
+    <div class="category-badge" id="categoryBadge">Openness</div>
+    <div class="question-number">
+      Pertanyaan <span id="questionNum">1</span>
+    </div>
+    <h2 class="question-text" id="questionText"></h2>
+
+    <div class="options-container" id="optionsContainer">
+      <button class="option-button" data-value="1">
+        <div class="option-radio"></div>
+        <span>Sangat Tidak Setuju</span>
+      </button>
+      <button class="option-button" data-value="2">
+        <div class="option-radio"></div>
+        <span>Tidak Setuju</span>
+      </button>
+      <button class="option-button" data-value="3">
+        <div class="option-radio"></div>
+        <span>Netral</span>
+      </button>
+      <button class="option-button" data-value="4">
+        <div class="option-radio"></div>
+        <span>Setuju</span>
+      </button>
+      <button class="option-button" data-value="5">
+        <div class="option-radio"></div>
+        <span>Sangat Setuju</span>
+      </button>
+    </div>
+
+    <div class="button-container">
+      <button
+        class="nav-button btn-back"
+        id="backBtn"
+        onclick="previousQuestion()"
+      >
+        ← Kembali
+      </button>
+      <button
+        class="nav-button btn-next"
+        id="nextBtn"
+        onclick="nextQuestion()"
+        disabled
+      >
+        Selanjutnya →
+      </button>
+    </div>
+  </div>
+</main>
+<script>
+  // <%- JSON.stringify(questions) %> adalah cara aman untuk
+  // mengubah data server (EJS) menjadi data JavaScript (JSON).
+  const questions = <%- JSON.stringify(questions) %>;
+</script>
+<script src="js/test.js"></script>

@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="styles/hasil.css" />
+<div class="container">
+  <div class="header">
+    <h1>🎉 Hasil Tes Kepribadian Anda</h1>
+    <p>Big Five Personality Test</p>
+  </div>
+
+  <div class="results-card">
+    <div class="summary-section">
+      <h2>Profil Kepribadian Anda</h2>
+      <p id="personalitySummary"></p>
+    </div>
+
+    <div id="traitResults"></div>
+
+    <div class="personality-radar">
+      <h3>Visualisasi Kepribadian</h3>
+      <canvas id="radarChart"></canvas>
+    </div>
+
+    <div class="download-section">
+      <h3>Bagikan Hasil Anda</h3>
+      <p style="color: #666; margin-bottom: 1rem">
+        Bagikan hasil tes kepribadian Anda dengan teman-teman!
+      </p>
+      <div class="share-buttons">
+        <button class="share-btn facebook" onclick="shareToFacebook()">
+          📘 Facebook
+        </button>
+        <button class="share-btn twitter" onclick="shareToTwitter()">
+          🐦 Twitter
+        </button>
+        <button class="share-btn whatsapp" onclick="shareToWhatsApp()">
+          💬 WhatsApp
+        </button>
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <button class="btn btn-primary" onclick="downloadPDF()">
+        📥 Download Hasil (PDF)
+      </button>
+      <button class="btn btn-secondary" onclick="retakeTest()">
+        🔄 Ulangi Tes
+      </button>
+      <a href="#" class="btn btn-secondary" onclick="goHome()"
+        >🏠 Kembali ke Home</a
+      >
+    </div>
+  </div>
+
+  <div class="footer-note">
+    <p>
+      💡 Hasil ini berdasarkan jawaban Anda dan diproses menggunakan metode Big
+      Five Personality yang tervalidasi secara ilmiah.
+    </p>
+    <p style="margin-top: 0.5rem">
+      Ingat: Kepribadian adalah spektrum, bukan kotak. Hasil ini adalah panduan
+      untuk memahami diri Anda lebih baik.
+    </p>
+  </div>
+</div>
+<script src="js/hasil.js"></script>

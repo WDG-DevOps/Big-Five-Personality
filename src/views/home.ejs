@@ -1,0 +1,75 @@
+<link rel="stylesheet" href="styles/home.css" />
+<header>
+  <nav>
+    <div class="logo"><a href="/" style="text-decoration: none; color: inherit;">🧠 Big Five Test</a></div>
+    <ul class="nav-links">
+      <% if (isAuthenticated) { %>
+        <li><a href="/profile">Profile</a></li>
+      <% } %>
+      <% if (isAuthenticated) { %>
+        <li><a href="/logout">Logout</a></li>
+      <% } else { %>
+        <li><a href="/login">Login</a></li> 
+      <% } %>
+    </ul>
+  </nav>
+</header>
+<main>
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Big Five Personality Test</h1>
+      <p class="subtitle">Temukan Kepribadian Sejati Anda</p>
+      <p class="description">
+        Big Five Personality Test adalah tes psikologi yang paling tervalidasi
+        secara ilmiah untuk mengukur lima dimensi utama kepribadian manusia. Tes
+        ini membantu Anda memahami diri sendiri dengan lebih baik melalui
+        analisis mendalam terhadap karakter dan perilaku Anda.
+      </p>
+
+      <div class="traits-grid">
+        <div class="trait-card">
+          <div class="trait-icon">🌟</div>
+          <div class="trait-name">Openness</div>
+          <div class="trait-desc">Keterbukaan terhadap pengalaman baru</div>
+        </div>
+        <div class="trait-card">
+          <div class="trait-icon">✅</div>
+          <div class="trait-name">Conscientiousness</div>
+          <div class="trait-desc">Kehati-hatian dan tanggung jawab</div>
+        </div>
+        <div class="trait-card">
+          <div class="trait-icon">🎉</div>
+          <div class="trait-name">Extraversion</div>
+          <div class="trait-desc">Tingkat keekstrovertan</div>
+        </div>
+        <div class="trait-card">
+          <div class="trait-icon">🤝</div>
+          <div class="trait-name">Agreeableness</div>
+          <div class="trait-desc">Keramahan dan kerjasama</div>
+        </div>
+        <div class="trait-card">
+          <div class="trait-icon">😌</div>
+          <div class="trait-name">Neuroticism</div>
+          <div class="trait-desc">Stabilitas emosional</div>
+        </div>
+      </div>
+
+      <button class="cta-button" onclick="window.location.href='/test'">
+        Mulai Tes Sekarang
+      </button>
+
+      <div class="info-section">
+        <h2>Mengapa Mengikuti Tes Ini?</h2>
+        <ul>
+          <li>✨ Gratis dan berdasarkan riset ilmiah</li>
+          <li>⏱️ Hanya membutuhkan 10-15 menit</li>
+          <li>📊 Hasil detail dan mudah dipahami</li>
+          <li>🔒 Privasi Anda terjamin</li>
+          <li>💡 Wawasan mendalam tentang kepribadian Anda</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="js/home.js"></script>
