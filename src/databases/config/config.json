@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "big_five",
-    "host": "127.0.0.1",
+    "password": "passwordrahasiaanda",
+    "database": "bigfive_db",
+    "host": "db",
     "dialect": "mysql",
     "logging": false,
     "timezone": "+07:00"

@@ -5,7 +5,7 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     const now = new Date();
 
-    await queryInterface.bulkInsert('Questions', [
+    await queryInterface.bulkInsert('questions', [
       // Trait E: Extraversion (Ekstraversi) - 10 Soal
       {
         question_text: 'I am the life of the party.',
@@ -369,6 +369,6 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('Questions', null, {});
+    await queryInterface.bulkDelete('questions', null, {});
   }
 };

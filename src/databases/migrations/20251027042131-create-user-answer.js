@@ -23,9 +23,9 @@ module.exports = {
       question_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        // 3. Foreign Key ke 'Questions'
+        // 3. Foreign Key ke 'questions'
         references: {
-          model: 'Questions', // Nama tabel pertanyaan
+          model: 'questions', // Nama tabel pertanyaan
           key: 'id'
         },
         onUpdate: 'CASCADE',
