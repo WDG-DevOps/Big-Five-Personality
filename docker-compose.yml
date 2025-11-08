@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: bigfive-app
+    ports:
+      - "6060:6060"
+    env_file:
+      - .env
+    depends_on:
+      - db # Bilang ke 'app' untuk menunggu 'db' nyala dulu
+    networks:
+      - bigfive-net
+
+  # Service 2: Database MySQL
+  db:
+    image: mysql:8.0
+    container_name: bigfive-db
+    ports:
+      # Map port 3306 di laptop Anda (agar bisa diakses tools spt DBeaver)
+      - "3306:3306"
+    environment:
+      # Set password root dan database yang akan dibuat
+      - MYSQL_ROOT_PASSWORD=passwordrahasiaanda # Ganti ini
+      - MYSQL_DATABASE=bigfive_db
+    volumes:
+      # Menyimpan data database secara permanen di laptop Anda
+      - mysql-data:/var/lib/mysql
+    networks:
+      - bigfive-net
+
+# Definisikan volume untuk persistensi data
+volumes:
+  mysql-data:
+
+# Definisikan network kustom
+networks:
+  bigfive-net:
