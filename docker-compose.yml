@@ -2,8 +2,7 @@ version: '3.8'
 
 services:
   app:
-    # image: apanyaclay/bigfive-app:latest
-    build: .
+    image: apanyaclay/bigfive-app:latest
     container_name: bigfive-app
     ports:
       - "6060:6060"

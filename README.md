@@ -14,7 +14,7 @@ Proyek ini menggunakan Docker Compose untuk menjalankan aplikasi Node.js dan *da
 1.  **Clone Repository Ini:**
 
     ```bash
-    git clone [https://github.com/WDG-DevOps/Big-Five-Personality.git](https://github.com/WDG-DevOps/Big-Five-Personality.git)
+    git clone https://github.com/WDG-DevOps/Big-Five-Personality.git
     cd Big-Five-Personality
     ```
 
