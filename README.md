@@ -17,6 +17,10 @@ Proyek ini menggunakan Docker Compose untuk menjalankan aplikasi Node.js dan *da
     git clone https://github.com/WDG-DevOps/Big-Five-Personality.git
     cd Big-Five-Personality
     ```
+    atau
+    * **Siapkan File docker-compose.yml**
+
+        Salin konten dari file docker-compose.yml di [Github](https://github.com/WDG-DevOps/Big-Five-Personality/blob/main/docker-compose.yml)
 
 2.  **Buat File `.env`:**
     Salin file `.env.example` menjadi file `.env` baru.
