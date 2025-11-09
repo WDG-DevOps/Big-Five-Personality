@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   app:
+    # image: apanyaclay/bigfive-app:latest
     build: .
     container_name: bigfive-app
     ports:
@@ -10,6 +11,16 @@ services:
       - .env
     depends_on:
       - db # Bilang ke 'app' untuk menunggu 'db' nyala dulu
+      - prediction-service
+    networks:
+      - bigfive-net
+    
+  # Service 1: Prediction Service
+  prediction-service:
+    image: apanyaclay/bigfive-prediction:latest
+    container_name: bigfive-prediction
+    ports:
+      - "5000:5000"
     networks:
       - bigfive-net
 

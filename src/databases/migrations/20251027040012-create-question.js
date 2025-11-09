@@ -17,11 +17,6 @@ module.exports = {
         type: Sequelize.ENUM('O', 'C', 'E', 'A', 'N'),
         allowNull: false
       },
-      is_reverse_scored: {
-        type: Sequelize.BOOLEAN,
-        allowNull: false,
-        defaultValue: false
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

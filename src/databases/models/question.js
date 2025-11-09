@@ -24,11 +24,6 @@ module.exports = (sequelize, DataTypes) => {
     trait: {
       type: DataTypes.ENUM('O', 'C', 'E', 'A', 'N'), // <-- Pastikan ini juga ENUM
       allowNull: false
-    },
-    is_reverse_scored: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: false
     }
   }, {
     sequelize,

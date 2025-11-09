@@ -1,6 +1,5 @@
 // buatkan logika untuk mengambil pertanyaan dari database
 const { Question, TestResult, UserAnswer } = require('../databases/models');
-const { calculateScores } = require('../utils/scoreCalculator');
 
 exports.getAllQuestions = async () => {
     try {
@@ -12,7 +11,7 @@ exports.getAllQuestions = async () => {
     }
 };
 
-exports.saveTestResult = async (userId, answers) => {
+exports.saveTestResult = async (userId, answers, probabilities) => {
     const t = await Question.sequelize.transaction();
     try {
         // Simpan hasil tes
@@ -28,14 +27,17 @@ exports.saveTestResult = async (userId, answers) => {
             result_id: resultId          // Tambahkan 'result_id' ke setiap jawaban
         }));
         await UserAnswer.bulkCreate(answersToSave);
-        const finalScores = await calculateScores(answers);
+        
+        // Simpan probabilitas
         await newTestResult.update({
-            score_O: finalScores.O,
-            score_C: finalScores.C,
-            score_E: finalScores.E,
-            score_A: finalScores.A,
-            score_N: finalScores.N
+            score_O: probabilities.OPN,
+            score_C: probabilities.CSN,
+            score_E: probabilities.EST,
+            score_A: probabilities.AGR,
+            score_N: probabilities.EXT
         });
+
+        await t.commit();
         return resultId;
     } catch (error) {
         console.error('Error saat submit tes:', error);

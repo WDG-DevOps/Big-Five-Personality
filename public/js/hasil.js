@@ -151,15 +151,37 @@ const traitData = {
   },
 };
 
-// Generate random scores untuk demo (dalam implementasi nyata, ini dari data tes)
-function generateDemoScores() {
-  return {
-    openness: Math.floor(Math.random() * 41) + 60, // 60-100
-    conscientiousness: Math.floor(Math.random() * 41) + 60,
-    extraversion: Math.floor(Math.random() * 41) + 50,
-    agreeableness: Math.floor(Math.random() * 41) + 65,
-    neuroticism: Math.floor(Math.random() * 41) + 30, // 30-70
-  };
+function getAndNormalizeScores() {
+    // 1. Ambil data JSON dari elemen skrip di hasil.ejs
+    const dataElement = document.getElementById("probabilities-data");
+    if (!dataElement || !dataElement.textContent) {
+        console.error("Gagal mengambil data probabilitas dari EJS.");
+        // Kembalikan nilai default atau kosong jika gagal
+        return {
+            openness: 50, conscientiousness: 50, extraversion: 50, 
+            agreeableness: 50, neuroticism: 50
+        };
+    }
+    
+    // Parse string JSON menjadi objek JavaScript
+    const rawProbs = JSON.parse(dataElement.textContent.trim());
+
+    // Data Probabilitas: { AGR: 0.0256, CSN: 0.0227, EST: 0.022, EXT: 0.9168, OPN: 0.0129 }
+    
+    // Normalisasi dan Pemetaan: Ubah singkatan (EXT, OPN) ke kunci yang digunakan di traitData
+    // dan konversi probabilitas (0-1) menjadi skor persentase (0-100).
+    const scores = {
+        // Neuroticism (EST) sering dibalik, di mana probabilitas tinggi = skor rendah
+        // Karena data Anda dari model, kita anggap probabilitas EST tinggi = Neuroticism tinggi
+        neuroticism: Math.round(parseFloat(rawProbs.EST) * 100), 
+        agreeableness: Math.round(parseFloat(rawProbs.AGR) * 100),
+        conscientiousness: Math.round(parseFloat(rawProbs.CSN) * 100),
+        extraversion: Math.round(parseFloat(rawProbs.EXT) * 100),
+        openness: Math.round(parseFloat(rawProbs.OPN) * 100)
+    };
+    
+    console.log("Normalized Scores:", scores);
+    return scores;
 }
 
 // Mendapatkan level berdasarkan skor
@@ -181,58 +203,75 @@ function getLevelLabel(level) {
 
 // Render hasil
 function renderResults() {
-  const scores = generateDemoScores();
-  const container = document.getElementById("traitResults");
+  const scores = getAndNormalizeScores();
+    if (Object.keys(scores).length === 0) {
+        document.getElementById("traitResults").innerHTML = "<p>Data hasil tidak valid atau hilang. Silakan ulangi tes.</p>";
+        return;
+    }
 
-  // Generate summary
-  generateSummary(scores);
+    const container = document.getElementById("traitResults");
+    container.innerHTML = ''; // Pastikan container bersih sebelum diisi
 
-  // Render setiap trait
-  Object.keys(traitData).forEach((traitKey) => {
-    const trait = traitData[traitKey];
-    const score = scores[traitKey];
-    const level = getLevel(score);
+    // Generate summary
+    generateSummary(scores);
 
-    const traitHTML = `
-                    <div class="trait-result">
-                        <div class="trait-header">
-                            <div class="trait-title">
-                                <span class="trait-icon">${trait.icon}</span>
-                                <span class="trait-name">${trait.name}</span>
-                            </div>
-                            <span class="trait-score">${score}%</span>
-                        </div>
-                        
-                        <div class="trait-bar-container">
-                            <div class="trait-bar ${level}" style="width: ${score}%">
-                                ${score}%
-                            </div>
-                        </div>
-                        
-                        <span class="trait-level ${level}">${getLevelLabel(
-      level
-    )}</span>
-                        
-                        <p class="trait-description">${
-                          trait.descriptions[level]
-                        }</p>
-                        
-                        <div class="trait-characteristics">
-                            <h4>Karakteristik Anda:</h4>
-                            <ul>
-                                ${trait.characteristics[level]
-                                  .map((char) => `<li>${char}</li>`)
-                                  .join("")}
-                            </ul>
-                        </div>
+    // --- LOGIKA PENGURUTAN BARU DIMULAI ---
+
+    // 1. Ubah objek skor menjadi array objek: [{key: 'openness', score: 91}, ...]
+    const sortedTraits = Object.keys(scores).map(traitKey => ({
+        key: traitKey,
+        score: scores[traitKey]
+    }));
+
+    // 2. Urutkan array berdasarkan skor, dari Tinggi ke Rendah
+    sortedTraits.sort((a, b) => b.score - a.score);
+
+    // 3. Render setiap trait berdasarkan urutan yang sudah diurutkan
+    sortedTraits.forEach((item) => {
+        const traitKey = item.key;
+        const score = item.score;
+        
+        const trait = traitData[traitKey];
+        const level = getLevel(score);
+
+        const traitHTML = `
+            <div class="trait-result">
+                <div class="trait-header">
+                    <div class="trait-title">
+                        <span class="trait-icon">${trait.icon}</span>
+                        <span class="trait-name">${trait.name}</span>
                     </div>
-                `;
+                    <span class="trait-score">${score}%</span>
+                </div>
+                
+                <div class="trait-bar-container">
+                    <div class="trait-bar ${level}" style="width: ${score}%">
+                        ${score}%
+                    </div>
+                </div>
+                
+                <span class="trait-level ${level}">${getLevelLabel(
+                    level
+                )}</span>
+                
+                <p class="trait-description">${
+                    trait.descriptions[level]
+                }</p>
+                
+                <div class="trait-characteristics">
+                    <h4>Karakteristik Anda:</h4>
+                    <ul>
+                        ${trait.characteristics[level]
+                            .map((char) => `<li>${char}</li>`)
+                            .join("")}
+                    </ul>
+                </div>
+            </div>
+        `;
 
-    container.innerHTML += traitHTML;
-  });
-
-  // Draw radar chart
-  drawRadarChart(scores);
+        container.innerHTML += traitHTML;
+    });
+    drawRadarChart(scores);
 }
 
 // Generate summary kepribadian

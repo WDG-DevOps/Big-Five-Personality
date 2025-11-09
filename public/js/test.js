@@ -265,15 +265,17 @@ async function submitTest() {
       },
       body: JSON.stringify({ answers: finalAnswers }),
     });
-
     if (!response.ok) {
       throw new Error("Gagal mengirim jawaban.");
     }
 
     const result = await response.json();
+    console.log(result);
 
-    // Arahkan ke halaman hasil
-    window.location.href = `/result`;
+    // Arahkan ke halaman hasil setelah 3 detik
+    setTimeout(() => {
+      window.location.href = `/result?`;
+    }, 3000);
   } catch (err) {
     console.error(err);
     document.querySelector(

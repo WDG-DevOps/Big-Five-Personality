@@ -6,365 +6,65 @@ module.exports = {
     const now = new Date();
 
     await queryInterface.bulkInsert('questions', [
-      // Trait E: Extraversion (Ekstraversi) - 10 Soal
-      {
-        question_text: 'I am the life of the party.',
-        trait: 'E',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I don\'t talk a lot.', // Perhatikan '
-        trait: 'E',
-        is_reverse_scored: true, // Reverse
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I feel comfortable around people.',
-        trait: 'E',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I keep in the background.',
-        trait: 'E',
-        is_reverse_scored: true, // Reverse
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I start conversations.',
-        trait: 'E',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I have little to say.',
-        trait: 'E',
-        is_reverse_scored: true, // Reverse
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I talk to a lot of different people at parties.',
-        trait: 'E',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I don\'t like to draw attention to myself.', // Perhatikan '
-        trait: 'E',
-        is_reverse_scored: true, // Reverse
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I don\'t mind being the center of attention.', // Perhatikan '
-        trait: 'E',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I am quiet around strangers.',
-        trait: 'E',
-        is_reverse_scored: true, // Reverse
-        createdAt: now,
-        updatedAt: now
-      },
+      // Trait E (Extraversion)
+      { question_text: 'Saya adalah pusat perhatian di pesta.', trait: 'E', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya tidak banyak bicara.', trait: 'E', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya merasa nyaman di sekitar orang.', trait: 'E', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya lebih suka berada di latar belakang.', trait: 'E', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya memulai percakapan.', trait: 'E', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya tidak banyak yang ingin dikatakan.', trait: 'E', createdAt: new Date(), updatedAt: new Date() }, // Berasal dari "I have little to say"
+      { question_text: 'Saya berbicara dengan banyak orang berbeda di pesta.', trait: 'E', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya tidak suka menarik perhatian.', trait: 'E', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya tidak keberatan menjadi pusat perhatian.', trait: 'E', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya pendiam di sekitar orang asing.', trait: 'E', createdAt: new Date(), updatedAt: new Date() },
 
-      // Trait N: Neuroticism (Neurotisisme / EST) - 10 Soal
-      {
-        question_text: 'I get stressed out easily.',
-        trait: 'N',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I am relaxed most of the time.',
-        trait: 'N',
-        is_reverse_scored: true, // Reverse
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I worry about things.',
-        trait: 'N',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I seldom feel blue.',
-        trait: 'N',
-        is_reverse_scored: true, // Reverse
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I am easily disturbed.',
-        trait: 'N',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I get upset easily.',
-        trait: 'N',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I change my mood a lot.',
-        trait: 'N',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I have frequent mood swings.',
-        trait: 'N',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I get irritated easily.',
-        trait: 'N',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I often feel blue.',
-        trait: 'N',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
+      // Trait N (Neuroticism)
+      { question_text: 'Saya mudah stres.', trait: 'N', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya seringkali merasa santai.', trait: 'N', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya mengkhawatirkan banyak hal.', trait: 'N', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya jarang merasa sedih.', trait: 'N', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya mudah terganggu.', trait: 'N', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya mudah kesal.', trait: 'N', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Suasana hati saya sering berubah.', trait: 'N', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya sering mengalami perubahan suasana hati.', trait: 'N', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya mudah tersinggung.', trait: 'N', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya sering merasa sedih.', trait: 'N', createdAt: new Date(), updatedAt: new Date() },
 
-      // Trait A: Agreeableness (Keramahan / AGR) - 10 Soal
-      {
-        question_text: 'I feel little concern for others.',
-        trait: 'A',
-        is_reverse_scored: true, // Reverse
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I am interested in people.',
-        trait: 'A',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I insult people.',
-        trait: 'A',
-        is_reverse_scored: true, // Reverse
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I sympathize with others\' feelings.', // Perhatikan '
-        trait: 'A',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I am not interested in other people\'s problems.', // Perhatikan '
-        trait: 'A',
-        is_reverse_scored: true, // Reverse
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I have a soft heart.',
-        trait: 'A',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I am not really interested in others.',
-        trait: 'A',
-        is_reverse_scored: true, // Reverse
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I take time out for others.',
-        trait: 'A',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I feel others\' emotions.', // Perhatikan '
-        trait: 'A',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I make people feel at ease.',
-        trait: 'A',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
+      // Trait A (Agreeableness)
+      { question_text: 'Saya kurang peduli dengan orang lain.', trait: 'A', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya tertarik pada orang lain.', trait: 'A', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya menghina orang.', trait: 'A', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya bersimpati dengan perasaan orang lain.', trait: 'A', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya tidak tertarik dengan masalah orang lain.', trait: 'A', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya memiliki hati yang lembut.', trait: 'A', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya tidak terlalu tertarik pada orang lain.', trait: 'A', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya meluangkan waktu untuk orang lain.', trait: 'A', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya merasakan emosi orang lain.', trait: 'A', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya membuat orang lain merasa nyaman.', trait: 'A', createdAt: new Date(), updatedAt: new Date() },
 
-      // Trait C: Conscientiousness (Sifat Berhati-hati / CSN) - 10 Soal
-      {
-        question_text: 'I am always prepared.',
-        trait: 'C',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I leave my belongings around.',
-        trait: 'C',
-        is_reverse_scored: true, // Reverse
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I pay attention to details.',
-        trait: 'C',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I make a mess of things.',
-        trait: 'C',
-        is_reverse_scored: true, // Reverse
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I get chores done right away.',
-        trait: 'C',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I often forget to put things back in their proper place.',
-        trait: 'C',
-        is_reverse_scored: true, // Reverse
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I like order.',
-        trait: 'C',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I shirk my duties.',
-        trait: 'C',
-        is_reverse_scored: true, // Reverse
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I follow a schedule.',
-        trait: 'C',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I am exacting in my work.',
-        trait: 'C',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
+      // Trait C (Conscientiousness)
+      { question_text: 'Saya selalu siap.', trait: 'C', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya menaruh barang-barang saya sembarangan.', trait: 'C', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya memperhatikan detail.', trait: 'C', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya membuat segalanya berantakan.', trait: 'C', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya segera menyelesaikan tugas.', trait: 'C', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya sering lupa mengembalikan barang ke tempatnya.', trait: 'C', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya menyukai ketertiban.', trait: 'C', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya melalaikan tugas saya.', trait: 'C', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya mengikuti jadwal.', trait: 'C', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya teliti dalam pekerjaan saya.', trait: 'C', createdAt: new Date(), updatedAt: new Date() },
 
-      // Trait O: Openness (Keterbukaan / OPN) - 10 Soal
-      {
-        question_text: 'I have a rich vocabulary.',
-        trait: 'O',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I have difficulty understanding abstract ideas.',
-        trait: 'O',
-        is_reverse_scored: true, // Reverse
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I have a vivid imagination.',
-        trait: 'O',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I am not interested in abstract ideas.',
-        trait: 'O',
-        is_reverse_scored: true, // Reverse
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I have excellent ideas.',
-        trait: 'O',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I do not have a good imagination.',
-        trait: 'O',
-        is_reverse_scored: true, // Reverse
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I am quick to understand things.',
-        trait: 'O',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I use difficult words.',
-        trait: 'O',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I spend time reflecting on things.',
-        trait: 'O',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
-      {
-        question_text: 'I am full of ideas.',
-        trait: 'O',
-        is_reverse_scored: false,
-        createdAt: now,
-        updatedAt: now
-      },
+      // Trait O (Openness)
+      { question_text: 'Saya memiliki kosakata yang kaya.', trait: 'O', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya kesulitan memahami ide-ide abstrak.', trait: 'O', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya memiliki imajinasi yang jelas.', trait: 'O', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya tidak tertarik pada ide-ide abstrak.', trait: 'O', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya punya ide-ide cemerlang.', trait: 'O', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya tidak memiliki imajinasi yang baik.', trait: 'O', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya cepat memahami sesuatu.', trait: 'O', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya menggunakan kata-kata sulit.', trait: 'O', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya menghabiskan waktu untuk merenung.', trait: 'O', createdAt: new Date(), updatedAt: new Date() },
+      { question_text: 'Saya penuh dengan ide.', trait: 'O', createdAt: new Date(), updatedAt: new Date() },
     ], {});
   },
 
